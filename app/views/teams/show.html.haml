@@ -1,0 +1,5 @@
+#supervisor-teams-show
+  .container
+    .page-header
+      %h1 Team #{@team.name}
+    = render :partial => "admin/teams/team", :locals => {:team => @team}

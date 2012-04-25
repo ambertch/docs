@@ -1,0 +1,32 @@
+#admin-docs-show
+  .well
+    %p
+      Valid keys for demo are: "madce-131638,moedce-78417,cacdce-371468,txwdce-350743,azdce-54425,ksdce-63278,flsdce-353589,njdce-176632,ilndce-127696,txwdce-8788"
+    %p
+      (Also try adding invalid case keys)
+  %p
+  #admin-docs-forms
+    = form_for :docs, :url => :admin_docs, :html => {:class => 'well form-vertical span5'} do |f|        
+      .clearfix
+        %h3 Case keys to insert:
+        .help-block{:style => 'margin-left: 5px'}
+          separated by commas
+        .input
+          = f.text_area :case_keys, :id => "documents-assignment"
+      %p
+      .clearfix
+        = f.label "Team to assign to:"
+        .input
+          = f.select(:team_id, Team.all.collect{|team| [team.name, team.id]}, { :include_blank => false })    
+      .clearfix
+        = f.submit "Queue Documents", :class => "btn btn-primary"
+    = form_for :docs, :url => :admin_docs, :method => :delete, :html => {:class => 'well form-vertical span5'} do |f|        
+      .clearfix
+        %h3 Case keys to remove:
+        .help-block{:style => 'margin-left: 5px'}
+          separated by commas (note: this deletes from any queues the document is in)
+        .input
+          = f.text_area :case_keys, :id => "documents-assignment"
+      %p
+      .clearfix
+        = f.submit "Dequeue Documents", :class => "btn btn-danger"

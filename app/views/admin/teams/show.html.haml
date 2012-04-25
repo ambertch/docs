@@ -1,0 +1,7 @@
+#admin-teams-show
+  .container
+    .page-header
+      %h1 Teams
+      #add-team.btn 
+        = link_to "Add Team", new_admin_teams_path
+    = render :partial => "team", :collection => @teams

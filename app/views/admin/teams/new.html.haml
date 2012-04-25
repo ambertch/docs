@@ -1,0 +1,4 @@
+.container  
+  = form_for @team, :url => admin_teams_path, :html => {:class => "form-horizontal"} do |f| 
+    = f.text_field :name, {:placeholder => "team name"}
+    = f.submit "Create Team", :class => "btn primary"

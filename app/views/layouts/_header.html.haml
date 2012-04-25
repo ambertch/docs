@@ -1,0 +1,24 @@
+- if current_user.is_admin?
+  %ul.nav
+    %li
+      = link_to "All Teams Documents", admin_all_docs_path
+    %li
+      = link_to "My Work", my_works_path
+    %li
+      = link_to "Manage Teams", admin_teams_path
+    %li
+      = link_to "Assign / Remove Documents", admin_docs_path
+- elsif current_user.is_supervisor?
+  %ul.nav
+    %li
+      = link_to "Documents", docs_path
+    %li
+      = link_to "My Work", my_works_path
+    %li
+      = link_to "Manage Team", teams_path
+- elsif current_user.is_coder?
+  %ul.nav
+    %li
+      = link_to "Documents", docs_path
+    %li
+      = link_to "My Work", my_works_path

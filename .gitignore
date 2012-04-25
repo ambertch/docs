@@ -1,0 +1,15 @@
+.bundle
+db/*.sqlite3
+db/*.sql
+*.gz
+db/schema.rb
+log/*.log
+tmp/
+.sass-cache/
+log/
+.DS_Store
+*/.DS_Store
+config/database.yml
+dump.rdb
+.rvmrc
+.rspec

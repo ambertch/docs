@@ -1,0 +1,26 @@
+%tr
+  %td 
+    = doc.case_key
+  %td 
+    = doc.docket_number
+  %td 
+    = doc.document_number
+  %td 
+    status
+  %td 
+    locked_by
+  %td 
+    Last_Coder
+  %td 
+    Last_Update_Type
+  %td 
+    Last_Update_Time
+  %td
+    #docs-edit-button
+      .btn.btn-primary
+        = link_to "Edit", edit_doc_path(doc.id)
+  - if current_user.is_supervisor? || current_user.is_admin?
+    %td
+      #docs-unlock-button
+        .btn.btn-danger
+          unlock

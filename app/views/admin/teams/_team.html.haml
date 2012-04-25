@@ -1,0 +1,27 @@
+#admin-team-display
+  %h3
+    = team.name
+    - if current_user.is_admin?
+      #team-deactivate.btn.btn-danger.btn-small
+        Deactivate Team
+  - if current_user.is_admin?
+    %h3
+      %small#admin-stats
+        #{pluralize(team.docs_waiting_approval.count, 'documents')} awaiting admin approval
+        |
+        #{pluralize(team.docs_with_admin_question.count, 'documents')} flagged for admin attention 
+  %h3
+    %small#team-stats
+      #{pluralize(team.docs_waiting_acceptance.count, 'documents')} awaiting supervisor acceptance
+      |
+      #{pluralize(team.docs_with_supervisor_question.count, 'documents')} flagged for supervisor attention 
+      |
+      #{pluralize(team.unfinished_docs.count, 'documents')} in work queue
+  %div
+  %p
+    - if current_user.is_admin?
+      = render :partial => "supervisors", :locals => { :team => team }
+      = render :partial => "coders", :locals => { :team => team }
+    - if current_user.is_supervisor?
+      = render :partial => "admin/teams/coders", :locals => { :team => team }
+.section-footer

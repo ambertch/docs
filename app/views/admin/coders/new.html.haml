@@ -1,0 +1,8 @@
+.container  
+  Default password will be 'password'
+  = form_for @coder, :url => admin_coders_path, :html => {:class => "form-horizontal"} do |f| 
+    = f.text_field :name, {:placeholder => "name"}
+    = f.text_field :email, {:placeholder => "email"}
+    = f.hidden_field :team_id, :value => @coder.team_id
+    = f.hidden_field :role, :value => @coder.role
+    = f.submit "Add Coder", :class => "btn primary"

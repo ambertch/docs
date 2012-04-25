@@ -1,0 +1,23 @@
+#docs-index 
+  #filters.well
+    %h4
+      Filters
+  #docs-table
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th Case Key
+          %th Docket #
+          %th Document #
+          %th Status
+          %th Locked By
+          %th Last Coder
+          %th Last Update Type
+          %th Last Update Time
+          %th
+          %th
+      %tbody
+        = render :partial => 'docs/doc', :collection => @docs
+  #pagination.well
+    %h4
+      Pagination

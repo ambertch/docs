@@ -1,0 +1,6 @@
+/ AH: ok this is kind of obfuscated - I'm trying to reconcile bootstrap's alerts
+/     with rails' built in flash[:notice]
+- [:success, :error, :info].each do |key| 
+  - unless flash[key].blank? 
+    %div{ :class => "alert alert-#{key}" }
+      #{flash[key]}

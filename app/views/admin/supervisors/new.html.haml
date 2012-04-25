@@ -1,0 +1,13 @@
+.container  
+  note: default password will be 'password'
+  = form_for @supervisor, :url => admin_supervisors_path, :html => {:class => "form-horizontal"} do |f| 
+    = f.text_field :name, {:placeholder => "name"}
+    = f.text_field :email, {:placeholder => "email"}
+    = f.hidden_field :team_id, :value => @supervisor.team_id
+    = f.hidden_field :role, :value => @supervisor.role
+    = f.submit "Add Supervisor", :class => "btn primary"
+  
+
+/ - flash[key].each do |name, msg|
+/   %div{ :class => "alert alert-#{key}" }
+/     #{name} #{msg}

@@ -1,0 +1,27 @@
+.span8
+  %table.table.table-striped.table-bordered.table-condensed
+    %thead
+      %tr
+        %th Supervisors
+        %th
+          #add-supervisor.btn.btn-mini.btn-info 
+            = link_to "Add Supervisor", new_admin_supervisor_path(:team_id => team.id)
+      %tr
+        %th Name
+        %th Email
+        %th Total documents QA'd
+        %th Total accepted by RPX
+        %th
+        
+    %tbody
+      - team.supervisors.each do |supervisor|        
+        %tr
+          %td= supervisor.name
+          %td
+            = supervisor.email
+          %td
+          %td
+          %td
+            #supervisor-deactivate.btn.btn-mini
+              Deactivate Supervisor
+.clear

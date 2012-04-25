@@ -1,0 +1,15 @@
+.span3
+  %table.table.table-striped.table-bordered.table-condensed
+    %thead
+      %tr
+        %th 
+          #{pluralize(team.coders.count, 'coder')}
+          #add-coder.btn.btn-mini{:style => 'float: right'}
+            = link_to "Add Coder", new_admin_coder_path(:team_id => team.id)
+      %tr
+        %th Name
+    %tbody
+      - team.coders.each do |coder|
+        %tr
+          %td= coder.name  
+.clear
