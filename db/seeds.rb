@@ -9,7 +9,7 @@ if Rails.env != 'test'
     ["Marshall Mathers", "eminem@gmail.com", User::SUPERVISOR],
     
     
-    ["Eric", "Eric@rpxcorp.com", User::ADMIN]
+    ["Eric", "eric@rpxcorp.com", User::ADMIN]
   ]
 
   ActiveRecord::Base.transaction do
