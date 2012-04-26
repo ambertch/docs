@@ -5,7 +5,7 @@ class Team < ActiveRecord::Base
   
   has_many :docs
   has_many :approved_docs, :class_name => 'Doc', :conditions => ['status = ?', Doc::APPROVED]
-  has_many :unfinished_docs, :class_name => 'Doc', :conditions => ['status = ? or status = ?', Doc::STARTED, Doc::TODO]
+  has_many :unfinished_docs, :class_name => 'Doc', :conditions => ['status in (?, ?, ?)', Doc::IN_PROGRESS, Doc::IN_PROGRESS,  Doc::TODO]
   has_many :docs_waiting_acceptance, :class_name => 'Doc', :conditions => ['status = ?', Doc::WAITING_FOR_ACCEPTANCE]
   has_many :docs_waiting_approval, :class_name => 'Doc', :conditions => ['status = ?', Doc::WAITING_FOR_APPROVAL]
   has_many :docs_not_started, :class_name => 'Doc', :conditions => ['status = ?', Doc::TODO]

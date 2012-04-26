@@ -1,0 +1,42 @@
+#docs-table
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th Case Key
+        %th Docket #
+        %th Document #
+        %th Status
+        %th Locked By
+        %th Last Coder
+        %th Last Update Type
+        %th Last Update Time
+        %th
+        %th
+    %tbody
+      - @table_docs.each do |doc|
+        %tr
+          %td 
+            = doc.case_key
+          %td 
+            = doc.docket_number
+          %td 
+            = doc.document_number
+          %td 
+            = doc.status
+          %td 
+            = doc.locked_by
+          %td 
+            = doc.last_coder
+          %td 
+            = doc.last_update_type
+          %td 
+            = doc.last_update_time
+          %td
+            #docs-edit-button
+              .btn.btn-primary
+                = link_to "Edit", "/docs/#{doc.id}/edit"
+          - if current_user.is_supervisor? || current_user.is_admin?
+            %td
+              #docs-unlock-button
+                .btn.btn-danger
+                  = link_to "Unlock", "/docs/#{doc.id}/unlock"

@@ -7,17 +7,14 @@ class CreateDocs < ActiveRecord::Migration
       t.integer :team_id, :null => false
       t.integer :status, :null => false, :default => Doc::TODO
       t.integer :flag, :null => false, :default => Doc::NO_FLAG
+      t.integer :locked_by_user_id
       t.integer :last_touched_admin_id
-      t.timestamp :last_touched_admin_time
       t.integer :last_touched_supervisor_id
-      t.timestamp :last_touched_supervisor_time
       t.integer :last_touched_coder_id
-      t.timestamp :last_touched_coder_time
       t.integer :lock_version, :null => false, :default => 0 # for optimistic locking
       
       t.text :fields
-      
-      
+
       t.timestamps
     end
   end
