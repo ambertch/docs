@@ -1,2 +1,6 @@
-.container
+- content_for :action_specific_javascript do
+  = javascript_include_tag 'docs/edit'
+
+.container  
   %h1 EDITING A DOCUMENT GOES HERE
+  = link_to 'Show Doc', "", :id => 'show_doc', :data => {:doc => "#{@doc.id}"}

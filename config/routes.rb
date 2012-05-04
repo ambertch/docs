@@ -7,6 +7,7 @@ Lithub::Application.routes.draw do
   resource :teams # where a supervisor manages his coders  
   resource :my_works # for a supervisor or admin to manage acceptances/approvals and address questions (flagged docs)
   resources :docs do # the document view, edit, and document list for a given team (goes off current_user.team)
+    get 'popup'
     get 'unlock'
   end
   

@@ -1,3 +1,4 @@
+
 #docs-table
   %table.table.table-bordered
     %thead
@@ -32,11 +33,11 @@
           %td 
             = doc.last_update_time
           %td
-            #docs-edit-button
+            .docs-edit-button
               .btn.btn-primary
                 = link_to "Edit", "/docs/#{doc.id}/edit"
           - if current_user.is_supervisor? || current_user.is_admin?
             %td
-              #docs-unlock-button
+              .docs-unlock-button
                 .btn.btn-danger
                   = link_to "Unlock", "/docs/#{doc.id}/unlock"

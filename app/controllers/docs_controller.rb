@@ -31,6 +31,10 @@ class DocsController < ApplicationController
     redirect_back
   end
   
+  def popup
+    render :layout => false
+  end
+  
   private
   def only_team_members_or_admin_can_access_doc
     @doc = Doc.find(params[:id])
